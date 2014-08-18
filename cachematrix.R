@@ -19,21 +19,29 @@
 ##
 makeCacheMatrix <- function(x = numeric()) {
   
-  ## initialize - cache the matrix and its inverse as a NULL value
+  ## initialize matrix  inverse to NULL value
   m <- NULL
+  
+  ## function to superassign matrix and its inverse
   set <- function(y) {
     x <<- y
     m <<- NULL
   }
   
-  ## return the matrix x
-  get <- function() x
+  ## function to return the matrix x
+  get <- function() {
+    x
+  }
   
-  ## cache the inverse
-  setinv <- function(inv) m <<- inv
+  ## function to cache the inverse
+  setinv <- function(inv) { 
+    m <<- inv
+  }
   
-  ## retrieve the cached value
-  getinv <- function() m
+  ## function to retrieve the cached value
+  getinv <- function() {
+    m
+  }
   
   ## create the list of functions
   list(set = set, get = get,
@@ -42,7 +50,7 @@ makeCacheMatrix <- function(x = numeric()) {
 }
 
 ##
-## cacheSolve() computes the inverse of the special "matrix" returned by makeCacheMatrix() 
+## cacheSolve() computes the inverse of the matrix returned by makeCacheMatrix() 
 ## If the inverse has already been calculated and the matrix has not changed, 
 ## cacheSolve() retrieves the inverse from the cache
 ##
