@@ -49,14 +49,14 @@ makeCacheMatrix <- function(x = numeric()) {
 ## Input:
 ##       x: list of matrix functions returned by makeCacheMatrix()
 ## Output:
-##       inverse of trixm
+##       inverse of matrix
 ## Notes:
 ##       It is assumed that the matrix is square and invertible, no error checks done
 ##
 cacheSolve <- function(x, ...) {
   
   ## return cached inverse if computed previously
-  inv <- x$getinv() 
+  inv <- x$getinv()
   if(!is.null(inv)) { 
     message("getting cached inverse")
     return(inv)
